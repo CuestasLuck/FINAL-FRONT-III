@@ -1,6 +1,8 @@
+import FavList from "../Components/FavList"
+
 function Favorites(){
     return (
-        <div>Favorites</div>
+        <FavList />
     )
 }
 
