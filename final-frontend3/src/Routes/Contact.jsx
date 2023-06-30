@@ -1,70 +1,17 @@
-import { useState } from 'react'
-import styles from '../Styles.module.css'
+import { useContext } from 'react'
+import { ThemeContext } from '../Contexts/ThemeContext'
+
+import Form from "../Components/Contact/Form"
 
 function Contact(){
-    const [name, setName] = useState('')
-    const [mail, setMail] = useState('')
-    const [error, setError] = useState([])
-    const [validation, setValidation] = useState(false)
-
-    const addError = newError => {
-        setError(prevErrors => [
-          ...prevErrors, newError
-        ])
-    }
-
-    function verifiedMail(email) {
-        let caracters = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
-        return caracters.test(email)
-    }
-
-    const formValidation = () => {
-        let result = true
-        setError([])
-    
-        if (name.trim().length < 5) {
-            addError('El Nombre Debe Tener Como Minimo 5 Caracteres ')
-            result = false
-        }if (!verifiedMail(mail)) {
-            addError('Ingrese un Correo Electrónico Valido Por Favor ')
-            result = false
-        }else{
-            return result
-        }
-        setValidation(result)
-    }
-    
-    const handleSubmit = e => {
-        e.preventDefault()
-        if (formValidation()) {
-            setValidation(true)
-            setName('')
-            setMail('')
-        }
-    }
-    
-    const settingName = e => {
-        setName(e.target.value)
-    }
-
-    const settingMail = e => {
-        setMail(e.target.value)
-    }
+    const theme = useContext(ThemeContext)
 
     return (
-        <section className={styles.container}>
-            <h3>Dejanos tus datos aqui. Pronto un operador de Doctors Company se pondra en contacto contigo.</h3>
-            <section className={styles.formContainer}>
-                <form className={styles.form} onSubmit={handleSubmit}>
-                    <label className={styles.label} htmlFor='nombre'>Nombre</label>
-                    <input type='text' id='nombre' value={name} onChange={settingName} />
-                    <label className={styles.label} htmlFor='mail'>Mail</label>
-                    <input type='text' id='mail' value={mail} onChange={settingMail} />
-                    <button className={styles.formBtn} type='submit'>Enviar</button>
-                </form>
-            </section>
-            {validation && (<p>Gracias {name}, te contactaremos cuando antes vía mail</p>)}
-            {error.length === 0 ? undefined : <p>{error}</p>}
+        <section className={theme.value}>
+            <h1>
+                Dejanos tus datos para comunicarnos aqui:
+            </h1>
+            <Form />
         </section>
     )
 }

@@ -1,19 +1,19 @@
 import { useContext } from 'react'
 import { ThemeContext } from '../Contexts/ThemeContext'
 
-import FavoriteList from "../Components/Favorites/FavoriteList"
+import Details from "../Components/Home/Details"
 
-function Favorites(){
+function Doctor(){
     const theme = useContext(ThemeContext)
 
     return (
         <section className={theme.value}>
             <h1>
-                Tu lista de Doctores Favoritos:
+                Mas Detalles:
             </h1>
-            <FavoriteList/>
+            <Details />
         </section>
     )
 }
 
-export default Favorites
+export default Doctor

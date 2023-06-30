@@ -1,7 +1,7 @@
 import { useContext, useState } from 'react'
-import { GlobalContext } from "../Contexts/GlobalContext";
+import { GlobalContext } from "../../Contexts/GlobalContext";
 import Card from './Card'
-import styles from '../Styles.module.css'
+import styles from './Home.module.css'
 
 const List = (props) => {
     const [ favoriteDoctor, setFavoriteDoctor] = useState( JSON.parse(localStorage.getItem('favoriteDoctor') || '[]'))

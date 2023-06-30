@@ -2,7 +2,7 @@ import { Link } from 'react-router-dom'
 import Home from '../Routes/Home'
 import Favorites from '../Routes/Favorites'
 import Contact from '../Routes/Contact'
-import styles from '../Styles.module.css'
+import styles from './Header.module.css'
 import { useContext } from 'react'
 import { ThemeContext } from '../Contexts/ThemeContext'
 

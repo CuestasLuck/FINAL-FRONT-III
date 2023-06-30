@@ -1,9 +1,9 @@
-
 import { useContext } from 'react'
-import List from '../Components/List'
 import { ThemeContext } from '../Contexts/ThemeContext'
 
-function Home(props){
+import List from '../Components/Home/List'
+
+function Home(){
     const theme = useContext(ThemeContext)
 
     return (
